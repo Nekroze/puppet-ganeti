@@ -16,6 +16,10 @@ class ganeti::install {
       priority       => 5,
     }
   }
+  
+  class { 'ganeti::install::drbd': } ->
+  class { 'ganeti::install::hypervisor': }
+  
   package { $ganeti::package_name:
     ensure => present,
   }
