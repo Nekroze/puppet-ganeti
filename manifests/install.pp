@@ -4,7 +4,7 @@
 #
 class ganeti::install {
 
-  package { $::ganeti::package_name:
+  package { $ganeti::package_name:
     ensure => present,
   }
 }

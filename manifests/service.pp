@@ -5,7 +5,7 @@
 #
 class ganeti::service {
 
-  service { $::ganeti::service_name:
+  service { $ganeti::service_name:
     ensure     => running,
     enable     => true,
     hasstatus  => true,
