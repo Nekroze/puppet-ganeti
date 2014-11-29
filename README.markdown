@@ -1,8 +1,8 @@
 #### Table of Contents
 
 1. [Overview](#overview)
-2. [Module Description - What the module does and why it is useful](#module-description)
-3. [Setup - The basics of getting started with ganeti](#setup)
+2. [Description](#module-description)
+3. [Setup](#setup)
     * [What ganeti affects](#what-ganeti-affects)
     * [Setup requirements](#setup-requirements)
     * [Beginning with ganeti](#beginning-with-ganeti)
@@ -13,13 +13,11 @@
 
 ## Overview
 
-A one-maybe-two sentence summary of what the module does/what problem it solves. This is your 30 second elevator pitch for your module. Consider including OS/Puppet version it works with.       
+Uses puppet to configure a one ore more Ganeti Hypervisors including a web interface!
 
 ## Module Description
 
-If applicable, this section should have a brief description of the technology the module integrates with and what that integration enables. This section should answer the questions: "What does this module *do*?" and "Why would I use it?"
-
-If your module has a range of functionality (installation, configuration, management, etc.) this is the time to mention it.
+This module can handle to configuration of KVM with some handy settings and then prepare Ganeti and its web interface to manage the hypervisor.
 
 ## Setup
 
@@ -49,12 +47,10 @@ Here, list the classes, types, providers, facts, etc contained in your module. T
 
 ## Limitations
 
-This is where you list OS compatibility, version compatibility, etc.
+This module is primarily tested on CentOS 6/7.
+
+Debian support should come in the future.
 
 ## Development
 
-Since your module is awesome, other users will want to play with it. Let them know what the ground rules for contributing are.
-
-## Release Notes/Contributors/Etc **Optional**
-
-If you aren't using changelog, put your release notes here (though you should consider using changelog). You may also add any additional sections you feel are necessary or important to include here. Please use the `## ` header. 
+MIT license, Use how you want. Any contributions are appreciated and welcome.
