@@ -4,13 +4,12 @@
 # It sets variables according to platform.
 #
 class ganeti::params {
-  case $::osfamily {
-    'Debian': {
-      $package_name = 'ganeti2'
-    }
-    default: {
-      $package_name = 'ganeti'
-    }
+  if $::osfamily == 'Debian' {
+    $package_name = 'ganeti2'
+  } else {
+    $package_name = 'ganeti'
   }
-  $service_name = 'ganeti'
+  $service_name   = 'ganeti'
+  $packages_drbd  = ['drbd84-utils', 'kmod-drbd84']
+  $packages_kvm   = ['qemu-kvm', 'libvirt', 'python-virtinst', 'bridge-utils']
 }
