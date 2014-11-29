@@ -17,8 +17,6 @@ describe 'ganeti' do
         it { should contain_class('ganeti::service').that_subscribes_to('ganeti::config') }
 
         it { should contain_service('ganeti')  }
-        it { should contain_package('ganeti').with_ensure('present') or
-        			contain_package('ganeti2').with_ensure('present') }
       end
     end
   end
