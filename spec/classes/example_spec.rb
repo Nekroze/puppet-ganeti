@@ -6,7 +6,9 @@ describe 'ganeti' do
       describe "ganeti class without any parameters on #{osfamily}" do
         let(:params) {{ }}
         let(:facts) {{
-          :osfamily => osfamily,
+          :osfamily               => osfamily,
+          :operatingsystem        => 'Redhat',
+          :operatingsystemrelease => '6.5',
         }}
 
         it { should compile.with_all_deps }
