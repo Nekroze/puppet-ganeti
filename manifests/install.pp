@@ -17,10 +17,10 @@ class ganeti::install {
     }
   }
   
-  class { 'ganeti::install::drbd': } ->
+  class { 'ganeti::install::drbd': }
   class { 'ganeti::install::hypervisor': }
   
   package { $ganeti::package_name:
-    ensure => present,
+    ensure => "present",
   }
 }

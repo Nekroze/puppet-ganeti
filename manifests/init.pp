@@ -10,6 +10,8 @@
 class ganeti (
   $package_name = $ganeti::params::package_name,
   $service_name = $ganeti::params::service_name,
+  $packages_drbd = $ganeti::params::packages_drbd,
+  $packages_kvm = $ganeti::params::packages_kvm,
 ) inherits ganeti::params {
 
   # validate parameters here

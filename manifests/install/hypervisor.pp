@@ -7,6 +7,6 @@ class ganeti::install::hypervisor {
   $packages = $ganeti::packages_kvm
   
   package { $packages:
-    ensure => present,
+    ensure => "present",
   }
 }
