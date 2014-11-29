@@ -21,6 +21,6 @@ class ganeti::install {
   class { 'ganeti::install::hypervisor': }
   
   package { $ganeti::package_name:
-    ensure => "present",
+    ensure => 'present',
   }
 }

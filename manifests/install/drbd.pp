@@ -5,6 +5,6 @@
 class ganeti::install::drbd {
   
   package { $ganeti::packages_drbd:
-    ensure => "present",
+    ensure => 'present',
   }
 }
