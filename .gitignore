@@ -5,3 +5,6 @@ spec/fixtures
 .vagrant
 .bundle
 vendor
+*.launch
+*.prefs
+*.lock
