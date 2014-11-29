@@ -4,6 +4,18 @@
 #
 class ganeti::install {
 
+  if $::osfamily == 'Redhat' {
+    include yum::repo::epel
+    include yum::repo::elrepo
+    yum::managed_yumrepo { 'integ-ganeti':
+	    descr          => "Iteg Ganeti repository",
+	    baseurl        => "http://jfut.integ.jp/linux/ganeti/\$releasever/\$basearch",
+	    enabled        => 1,
+	    gpgcheck       => 1,
+	    failovermethod => 'priority',
+      priority       => 5,
+    }
+  }
   package { $ganeti::package_name:
     ensure => present,
   }

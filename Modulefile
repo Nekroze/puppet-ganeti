@@ -8,3 +8,4 @@ description   ''
 project_page  'https://github.com/Nekroze/puppet-ganeti'
 
 dependency 'puppetlabs/stdlib'
+dependency 'example42/yum', '>=2.1.0'
