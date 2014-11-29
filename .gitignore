@@ -8,3 +8,4 @@ vendor
 *.launch
 *.prefs
 *.lock
+*.project
