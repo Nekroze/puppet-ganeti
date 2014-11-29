@@ -7,5 +7,5 @@ summary       'Ganeti Hypervisor Management'
 description   ''
 project_page  'https://github.com/Nekroze/puppet-ganeti'
 
-dependency 'puppetlabs/stdlib'
-dependency 'example42/yum', '>=2.1.0'
+dependency 'puppetlabs/stdlib', '>=4.4.0'
+dependency 'example42/yum', '>=2.1.17'
