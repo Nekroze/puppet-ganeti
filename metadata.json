@@ -1,0 +1,16 @@
+{
+  "name": "nekroze-ganeti",
+  "version": "0.1.0",
+  "author": "Taylor "Nekroze" Lawson",
+  "summary": "Ganeti Hypervisor Management",
+  "license": "MIT",
+  "source": "https://github.com/Nekroze/puppet-ganeti.git",
+  "project_page": "https://github.com/Nekroze/puppet-ganeti",
+  "issues_url": "https://github.com/Nekroze/puppet-ganeti/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_requirement": ">= 1.0.0"
+    }
+  ]
+}
