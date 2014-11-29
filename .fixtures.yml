@@ -1,7 +1,7 @@
 fixtures:
   repositories:
-    stdlib: "https://github.com/puppetlabs/puppetlabs-stdlib.git"
-    yum:    "https://github.com/example42/puppet-yum.git"
     puppi:  "https://github.com/example42/puppi.git"
+    stdlib: "https://github.com/puppetlabs/puppetlabs-stdlib.git"
+    yum:    "https://github.com/Nekroze/puppet-yum.git"
   symlinks:
     ganeti: "#{source_dir}"
