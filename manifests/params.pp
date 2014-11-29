@@ -6,15 +6,11 @@
 class ganeti::params {
   case $::osfamily {
     'Debian': {
-      $package_name = 'ganeti'
-      $service_name = 'ganeti'
-    }
-    'RedHat', 'Amazon': {
-      $package_name = 'ganeti'
-      $service_name = 'ganeti'
+      $package_name = 'ganeti2'
     }
     default: {
-      fail("${::operatingsystem} not supported")
+      $package_name = 'ganeti'
     }
   }
+  $service_name = 'ganeti'
 }
