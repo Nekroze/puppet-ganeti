@@ -23,8 +23,6 @@ RSpec.configure do |c|
   c.before :suite do
     # Install module and dependencies
     puppet_module_install(:source => proj_root, :module_name => 'ganeti')
-    puppet_module_install('puppetlabs-stdlib')
-    puppet_module_install('example42-yum')
     hosts.each do |host|
       on host, puppet('module', 'install', 'puppetlabs-stdlib'), { :acceptable_exit_codes => [0,1] }
       on host, puppet('module', 'install', 'example42-yum'), { :acceptable_exit_codes => [0,1] }
