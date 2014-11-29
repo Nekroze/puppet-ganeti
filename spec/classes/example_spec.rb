@@ -22,15 +22,4 @@ describe 'ganeti' do
       end
     end
   end
-
-  context 'unsupported operating system' do
-    describe 'ganeti class without any parameters on Solaris/Nexenta' do
-      let(:facts) {{
-        :osfamily        => 'Solaris',
-        :operatingsystem => 'Nexenta',
-      }}
-
-      it { expect { should contain_package('ganeti') }.to raise_error(Puppet::Error, /Nexenta not supported/) }
-    end
-  end
 end
