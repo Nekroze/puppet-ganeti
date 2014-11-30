@@ -10,7 +10,7 @@ class ganeti::install::web {
   ->
   archive { 'ganeti-${ganeti::web_version}':
     ensure   => $ganeti::web_ensure,
-    url      => "https://code.osuosl.org/attachments/download/3321/ganeti-${ganeti::web_version}.tar.gz",
+    url      => "https://code.osuosl.org/attachments/download/3321/ganeti-webmgr-${ganeti::web_version}.tar.gz",
     checksum => false,
     target   => $ganeti::web_install_dir,
   }
