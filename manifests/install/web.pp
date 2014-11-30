@@ -14,9 +14,11 @@ class ganeti::install::web {
     proto  => tcp,
     action => accept,
   }
-
-  include apache
-  include apache::mod::wsgi
+  
+  if $ganeti::web_enable {
+    include apache
+    include apache::mod::wsgi
+  }
 
   python::pip { 'twisted':
     ensure   => $ganeti::web_ensure,
