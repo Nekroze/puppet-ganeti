@@ -4,5 +4,6 @@ fixtures:
     stdlib:  "https://github.com/puppetlabs/puppetlabs-stdlib.git"
     yum:     "https://github.com/Nekroze/puppet-yum.git"
     archive: "https://github.com/gini/puppet-archive.git"
+    python:  "https://github.com/stankevich/puppet-python.git"
   symlinks:
     ganeti: "#{source_dir}"
