@@ -4,6 +4,17 @@
 #
 class ganeti::install::web {
   
+  firewall { 'vncap-policy':
+    port   => 843,
+    proto  => tcp,
+    action => accept,
+  }
+  firewall { 'vncap':
+    port   => 7000-8000,
+    proto  => tcp,
+    action => accept,
+  }
+
   python::pip { 'twisted':
     ensure   => $ganeti::web_ensure,
   }

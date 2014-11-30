@@ -23,6 +23,7 @@ class ganeti::params {
   $drbd_ensure           = 'present',
   $packages_kvm          = ['qemu-kvm', 'libvirt', 'python-virtinst', 'bridge-utils']
   $kvm_ensure            = 'present',
+  $manage_firewall       = true,
   $web_version           = '0.10.2',
   $web_ensure            = 'present',
   $web_services          = $web_ensure ? {
