@@ -34,5 +34,11 @@ class ganeti::config {
     },
     wsgi_process_group          => 'wsgi',
     wsgi_script_aliases         => { '/' => "${ganeti::web_install_dir}/ganeti_webmgr/ganeti.wsgi" },
+    aliases => [
+      { 
+        aliasmatch       => '/static',
+        path             => "${ganeti::web_install_dir}/ganeti_webmgr/static",
+      },
+    ],
   }
 }
