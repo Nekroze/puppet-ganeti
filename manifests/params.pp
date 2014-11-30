@@ -4,7 +4,15 @@
 # It sets variables according to platform.
 #
 class ganeti::params {
-  $ensure             = 'present',
+  $ensure                = 'present',
+  $services              = $ensure ? {
+    /(present|latest)/   => 'running',
+    default              => 'stopped',
+  },
+  $enable                = $ensure ? {
+    /(present|latest)/   => true,
+    default              => false,
+  },
   if $::osfamily == 'Debian' {
     $packages_ganeti     = 'ganeti2'
   } else {
@@ -17,6 +25,14 @@ class ganeti::params {
   $kvm_ensure            = 'present',
   $web_version           = '0.10.2',
   $web_ensure            = 'present',
+  $web_services          = $web_ensure ? {
+    /(present|latest)/   => 'running',
+    default              => 'stopped',
+  },
+  $web_enable            = $web_ensure ? {
+    /(present|latest)/   => true,
+    default              => false,
+  },
   $web_install_dir       = '/usr/src',
   $web_admins            = [],
   $web_database_type     = 'postgresql',

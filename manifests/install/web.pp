@@ -8,7 +8,7 @@ class ganeti::install::web {
     ensure   => $ganeti::web_ensure,
   }
   ->
-  vcsrepo { "/path/to/repo":
+  vcsrepo { "${ganeti::web_install_dir}/vncap":
     ensure   => present,
     provider => git,
     source   => 'git://git.osuosl.org/gitolite/ganeti/twisted_vncauthproxy',
