@@ -12,7 +12,9 @@ class ganeti::params {
   }
   $service_name      = 'ganeti'
   $packages_drbd     = ['drbd84-utils', 'kmod-drbd84']
+  $drbd_ensure       = 'present',
   $packages_kvm      = ['qemu-kvm', 'libvirt', 'python-virtinst', 'bridge-utils']
+  $kvm_ensure        = 'present',
   $web_version       = '0.10.2',
   $web_ensure        = 'present',
   $web_install_dir   = '/usr/src',
