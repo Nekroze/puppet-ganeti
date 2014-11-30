@@ -7,5 +7,6 @@ fixtures:
     python:  "https://github.com/stankevich/puppet-python.git"
     vcsrepo: "https://github.com/puppetlabs/puppetlabs-vcsrepo.git"
     apache:  "https://github.com/puppetlabs/puppetlabs-apache.git"
+    ksm:     "https://github.com/jhoblitt/puppet-ksm.git"
   symlinks:
     ganeti: "#{source_dir}"
