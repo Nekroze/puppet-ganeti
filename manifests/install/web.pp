@@ -3,6 +3,16 @@
 # This class is called from ganeti for installing the web manager.
 #
 class ganeti::install::web {
+  
+  python::pip { 'twisted':
+    ensure   => $ganeti::web_ensure,
+  }
+  ->
+  vcsrepo { "/path/to/repo":
+    ensure   => present,
+    provider => git,
+    source   => 'git://git.osuosl.org/gitolite/ganeti/twisted_vncauthproxy',
+  }
 
   python::pip { 'fabric':
     ensure   => $ganeti::web_ensure,

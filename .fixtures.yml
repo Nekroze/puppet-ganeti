@@ -5,5 +5,6 @@ fixtures:
     yum:     "https://github.com/Nekroze/puppet-yum.git"
     archive: "https://github.com/gini/puppet-archive.git"
     python:  "https://github.com/stankevich/puppet-python.git"
+    vcsrepo: "https://github.com/puppetlabs/puppetlabs-vcsrepo.git
   symlinks:
     ganeti: "#{source_dir}"
