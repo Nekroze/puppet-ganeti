@@ -29,15 +29,17 @@ class ganeti::config {
     },
     wsgi_import_script          => "${ganeti::web_install_dir}/ganeti_webmgr/ganeti.wsgi",
     wsgi_import_script_options  => {
-      process-group => 'wsgi',
+      process-group     => 'wsgi',
       application-group => '%{GLOBAL}',
     },
     wsgi_process_group          => 'wsgi',
-    wsgi_script_aliases         => { '/' => "${ganeti::web_install_dir}/ganeti_webmgr/ganeti.wsgi" },
-    aliases => [
-      { 
-        aliasmatch       => '/static',
-        path             => "${ganeti::web_install_dir}/ganeti_webmgr/static",
+    wsgi_script_aliases         => {
+        '/' => "${ganeti::web_install_dir}/ganeti_webmgr/ganeti.wsgi"
+    },
+    aliases                     => [
+      {
+        aliasmatch => '/static',
+        path       => "${ganeti::web_install_dir}/ganeti_webmgr/static",
       },
     ],
   }

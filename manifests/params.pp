@@ -26,7 +26,7 @@ class ganeti::params {
   $manage_firewall       = true
   $ksm                   = true
   $cluster_name          = 'cluster'
-  $web_url               = $fqdn
+  $web_url               = $::fqdn
   $web_version           = '0.10.2'
   $web_ensure            = 'present'
   $web_services          = $web_ensure ? {
@@ -51,7 +51,7 @@ class ganeti::params {
   $web_name              = 'Ganeti Web Management'
   $web_email_host        = 'mx'
   $web_email_port        = 25
-  $web_email_from        = "noreply@$fqdn"
+  $web_email_from        = "noreply@${::fqdn}"
   $web_registration      = true
   $web_api_key           = 'CHANGE_ME'
   $web_ldap              = true
