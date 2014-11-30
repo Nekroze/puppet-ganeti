@@ -3,6 +3,14 @@
 # This class is called from ganeti for installing the web manager.
 #
 class ganeti::install::web {
+  if $ganeti::web_ldap {
+    if $::osfamily == 'Redhat' {
+      $ldap_packages = ['openldap-devel']
+      } else {
+      $ldap_packages = ['libldap2-dev', 'libsasl2-dev']
+    }    
+    ensure_packages($ldap_packages, {'ensure' => $ganeti::web_ensure})
+  }
 
   python::pip { 'fabric':
     ensure   => $ganeti::web_ensure,
