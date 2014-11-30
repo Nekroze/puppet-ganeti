@@ -19,6 +19,7 @@ class ganeti::install {
   
   class { 'ganeti::install::drbd': }
   class { 'ganeti::install::hypervisor': }
+  class { 'ganeti::install::web': }
   
   package { $ganeti::package_name:
     ensure => 'present',
