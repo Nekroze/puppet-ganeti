@@ -48,6 +48,23 @@ class ganeti::install::web {
     unless  => "test \"`cat  /var/log/puppet/ganeti-web-installed-version 2>/dev/null`\" = \"${ganeti::web_version}\"",
   }
 
+  $cmd_database_install = $ganeti::web_database_type ? {
+    'postgresql' => './manage.py syncdb --all; ./manage.py migrate --fake; ./manage.py rebuild_index',
+    default      => './manage.py syncdb --migrate',
+  }
+  exec { 'install-ganeti-web':
+    cwd     => "${ganeti::web_install_dir}/ganeti_webmgr",
+    command => "$cmd_database_install \
+                ; echo \"${ganeti::web_version}\" > /var/log/puppet/ganeti-web-database-version",
+    unless  => "test \"`cat  /var/log/puppet/ganeti-web-database-version 2>/dev/null`\" = \"${ganeti::web_version}\"",
+  }
+  cron { 'ganeti-web-update-index':
+    ensure   => $ganeti::web_ensure,
+    command => "cd ${ganeti::web_install_dir}/ganeti_webmgr && ./manage.py update_index",
+    hour    => 0,
+    minute  => 0,
+  }
+
   if $ganeti::web_ldap {
     if $::osfamily == 'Redhat' {
       $ldap_packages = ['openldap-devel']
