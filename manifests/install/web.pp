@@ -14,4 +14,11 @@ class ganeti::install::web {
     checksum => false,
     target   => $ganeti::web_install_dir,
   }
+  ->
+  exec { "install-ganeti-web":
+    cwd     => $ganeti::web_install_dir,
+    command => "fab deploy \
+                && echo \"${ganeti::web_version}\" > \"/var/log/puppet/ganeti-web-installed-version\"",
+    unless  => "test \"`cat  /var/log/puppet/ganeti-web-installed-version 2>/dev/null`\" = \"${ganeti::web_version}\"",
+  }
 }
