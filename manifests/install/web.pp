@@ -15,6 +15,9 @@ class ganeti::install::web {
     action => accept,
   }
 
+  include apache
+  include apache::mod::wsgi
+
   python::pip { 'twisted':
     ensure   => $ganeti::web_ensure,
   }

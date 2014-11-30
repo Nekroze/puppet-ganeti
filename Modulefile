@@ -9,6 +9,7 @@ project_page  'https://github.com/Nekroze/puppet-ganeti'
 
 dependency 'puppetlabs/stdlib', '>=4.4.0'
 dependency 'puppetlabs/vcsrepo', '>=1.2.0'
+dependency 'puppetlabs/apache', '>=1.2.0'
 dependency 'example42/yum', '>=2.1.17'
 dependency 'gini/archive', '>=0.2.1'
 dependency 'stankevich/python', '>=1.7.16'
