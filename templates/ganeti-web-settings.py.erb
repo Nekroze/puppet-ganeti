@@ -1,7 +1,9 @@
 # Django settings for ganeti_webmgr project.
 
 from ganeti_web.settings import *
-#from ldap_settings import *
+<% if  scope.lookupvar('ganeti::web_ldap') %>
+from ldap_settings import *
+<% end %>
 
 import os.path
 
