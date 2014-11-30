@@ -13,12 +13,12 @@ class ganeti (
   $service_name    = $ganeti::params::service_name,
   $packages_drbd   = $ganeti::params::packages_drbd,
   $packages_kvm    = $ganeti::params::packages_kvm,
-  $web_version     = $ganeti::params::web_version,
   $web_ensure      = $ganeti::params::web_ensure,
+  $web_version     = $ganeti::params::web_version,
   $web_install_dir = $ganeti::params::web_install_dir,
 ) inherits ganeti::params {
 
-  
+  validate_string($ensure, $web_ensure, $web_version)
 
   class { 'ganeti::install': } ->
   class { 'ganeti::config': } ~>
