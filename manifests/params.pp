@@ -4,6 +4,7 @@
 # It sets variables according to platform.
 #
 class ganeti::params {
+  $ensure          = 'present',
   if $::osfamily == 'Debian' {
     $package_name  = 'ganeti2'
   } else {

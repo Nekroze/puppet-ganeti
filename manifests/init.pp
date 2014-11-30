@@ -8,6 +8,7 @@
 #   Explanation of what this parameter affects and what it defaults to.
 #
 class ganeti (
+  $ensure          = $ganeti::params::ensure,
   $package_name    = $ganeti::params::package_name,
   $service_name    = $ganeti::params::service_name,
   $packages_drbd   = $ganeti::params::packages_drbd,
@@ -17,7 +18,7 @@ class ganeti (
   $web_install_dir = $ganeti::params::web_install_dir,
 ) inherits ganeti::params {
 
-  # validate parameters here
+  
 
   class { 'ganeti::install': } ->
   class { 'ganeti::config': } ~>

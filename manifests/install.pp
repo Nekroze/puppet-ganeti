@@ -22,6 +22,6 @@ class ganeti::install {
   class { 'ganeti::install::web': }
   
   package { $ganeti::package_name:
-    ensure => 'present',
+    ensure => $ganeti::ensure,
   }
 }
