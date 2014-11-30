@@ -25,6 +25,7 @@ class ganeti::params {
   $kvm_ensure            = 'present',
   $manage_firewall       = true,
   $ksm                   = true,
+  $cluster_name          = 'cluster',
   $web_url               = $fqdn,
   $web_version           = '0.10.2',
   $web_ensure            = 'present',
