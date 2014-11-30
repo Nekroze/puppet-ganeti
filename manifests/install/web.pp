@@ -42,7 +42,7 @@ class ganeti::install::web {
   }
   ->
   exec { 'install-ganeti-web':
-    cwd     => "${ganeti::web_install_dir}/ganeti-webmgr-${ganet::web_version}",
+    cwd     => "${ganeti::web_install_dir}/ganeti_webmgr",
     command => "fab deploy \
                 && echo \"${ganeti::web_version}\" > /var/log/puppet/ganeti-web-installed-version",
     unless  => "test \"`cat  /var/log/puppet/ganeti-web-installed-version 2>/dev/null`\" = \"${ganeti::web_version}\"",
@@ -57,7 +57,7 @@ class ganeti::install::web {
     ensure_packages($ldap_packages, {'ensure' => $ganeti::web_ensure})
 
     exec { "install-ganeti-ldap-enable":
-      cwd       => "${ganeti::web_install_dir}/ganeti-webmgr-${ganet::web_version}",
+      cwd       => "${ganeti::web_install_dir}/ganeti_webmgr",
       command   => "fab ldap \
                     && echo \"${ganeti::web_version}+ldap\" > /var/log/puppet/ganeti-web-installed-version-ldap",
       unless    => "test \"`cat  /var/log/puppet/ganeti-web-installed-version-ldap 2>/dev/null`\" = \"${ganeti::web_version}+ldap\"",
@@ -65,7 +65,7 @@ class ganeti::install::web {
     }
   } else {
     exec { "install-ganeti-ldap-disable":
-      cwd       => "${ganeti::web_install_dir}/ganeti-webmgr-${ganet::web_version}",
+      cwd       => "${ganeti::web_install_dir}/ganeti_webmgr",
       command   => 'fab ldap:disable \
                     && rm -f /var/log/puppet/ganeti-web-installed-version-ldap',
       onlyif    => 'test -f /var/log/puppet/ganeti-web-installed-version-ldap',
