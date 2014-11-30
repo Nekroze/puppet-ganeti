@@ -34,4 +34,5 @@ class ganeti::params {
   $web_email_from    = "noreply@$fqdn",
   $web_registration  = true,
   $web_api_key       = 'CHANGE_ME',
+  $web_ldap          = true,
 }
