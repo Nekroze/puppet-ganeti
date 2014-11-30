@@ -52,7 +52,14 @@ class ganeti::install::web {
     'postgresql' => './manage.py syncdb --all; ./manage.py migrate --fake; ./manage.py rebuild_index',
     default      => './manage.py syncdb --migrate',
   }
-  exec { 'install-ganeti-web':
+  exec { 'install-ganeti-web-database-upgrade':
+    cwd     => "${ganeti::web_install_dir}/ganeti_webmgr",
+    command => "./manage.py migrate --delete-ghost-migrations \
+                ; echo \"${ganeti::web_version}\" > /var/log/puppet/ganeti-web-database-version",
+    onlyif  => "test -e /var/log/puppet/ganeti-web-database-version -a \"`cat  /var/log/puppet/ganeti-web-database-version 2>/dev/null`\" -ne \"${ganeti::web_version}\"",
+  }
+  ->
+  exec { 'install-ganeti-web-database-setup':
     cwd     => "${ganeti::web_install_dir}/ganeti_webmgr",
     command => "$cmd_database_install \
                 ; echo \"${ganeti::web_version}\" > /var/log/puppet/ganeti-web-database-version",
