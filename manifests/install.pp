@@ -21,7 +21,5 @@ class ganeti::install {
   class { 'ganeti::install::hypervisor': }
   class { 'ganeti::install::web': }
   
-  package { $ganeti::package_name:
-    ensure => $ganeti::ensure,
-  }
+  ensure_packages($ganeti::packages_ganeti, {'ensure' => $ganeti::ensure})
 }
