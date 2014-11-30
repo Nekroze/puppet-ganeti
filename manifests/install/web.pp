@@ -16,7 +16,7 @@ class ganeti::install::web {
   }
   ->
   exec { "install-ganeti-web":
-    cwd     => $ganeti::web_install_dir,
+    cwd     => "${ganeti::web_install_dir}/ganeti-webmgr-${ganet::web_version}",
     command => "fab deploy \
                 && echo \"${ganeti::web_version}\" > \"/var/log/puppet/ganeti-web-installed-version\"",
     unless  => "test \"`cat  /var/log/puppet/ganeti-web-installed-version 2>/dev/null`\" = \"${ganeti::web_version}\"",
