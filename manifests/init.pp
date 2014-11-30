@@ -55,7 +55,7 @@ class ganeti (
   validate_string($ensure, $web_ensure, $web_version, $drbd_ensure, $kvm_ensure, $web_database_type, $web_database_name, $web_database_users, $web_database_pass, $web_database_host, $web_timezone, $web_language, $web_name, $web_email_host, $web_email_from, $web_api_key, $web_ldap_uri, $web_ldap_bind_dn, $web_ldap_bind_pass, $web_lda_users_dn, $web_lda_users_uid, $web_lda_groups_dn, $web_lda_groups_class, $web_url, $cluster_name)
   validate_array($packages_ganeti, $packages_drbd, $packages_kvm, $web_admins)
   validate_bool($web_registration, $web_ldap, $eable, $web_enable, $manage_firewall, $ksm)
-  validate_bool(is_numeric($web_database_host), is_numeric($web_id), is_numeric($web_email_port)
+  validate_bool(is_numeric($web_database_host), is_numeric($web_id), is_numeric($web_email_port))
   validate_absolution_path($web_install_dir)
 
   class { 'ganeti::install': } ->
