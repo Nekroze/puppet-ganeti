@@ -15,6 +15,9 @@ class ganeti::install {
       failovermethod => 'priority',
       priority       => 5,
     }
+    if $ganeti::ksm {
+      include ksm
+    }
   }
   
   class { 'ganeti::install::drbd': }
